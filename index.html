@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="styles.css">
         <meta charset="UTF-8">
         <title>Rock Paper Scissors</title>
+        <script src="./rps.js" defer></script>
     </head>
-    <body>
-        <script src="./rps.js"></script>
+    <body class="page">
+        <div class="outer-box">
+            <h1>The 1st to reach 5pts wins</h1>
+            <div class="buttons">
+                <button id="1">ROCK</button>
+                <button id="2">PAPER</button>
+                <button id="3">SCISSORS</button>
+            </div>
+            <div class="points">
+                <p>Computer: <span class="comp"></span></p>
+                <p>Player: <span class="user"></span></p>
+            </div>
+        </div>
     </body>
 </html>

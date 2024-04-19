@@ -6,4 +6,4 @@ It consists of an HTML file and a JS file.
 The JS file contains the game code.
 
 Link:
-[Site](jupiter-2003.github.io/rock-paper-scissors/)
+jupiter-2003.github.io/rock-paper-scissors/

@@ -61,17 +61,5 @@ function singleRound(computerSelection){
 
 function playGame()
 {
-    let score = 0;
-    for(let i=1;i<=5;i++){
-        score+=singleRound(getComputerChoice());
-    }
-    if(score>0){
-        alert("You won this Game!!!");
-    }
-    else if(score<0){
-        alert("Computer won this Game!!!");
-    }
-    else{
-        alert("It's a draw!!!");
-    }
+    
 }

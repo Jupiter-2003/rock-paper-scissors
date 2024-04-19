@@ -1,0 +1,31 @@
+.page{
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+    background-color: black;
+}
+.outer-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    border: 1px;
+    border-color: white;
+    border-style: double;
+    background-color: rgb(183, 248, 243);
+    width: 600px;
+    height: 300px;
+    padding: 10px;
+}
+.buttons{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 50px;
+}
+button{
+    height: 50px;
+    width: 100px;
+}
+
