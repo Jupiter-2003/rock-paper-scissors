@@ -1,34 +1,41 @@
-
-let playerScore=0, compScore=0, ctr=0;
+//document.addEventListener("DOMContentLoaded", (event)=>{
+let playerScore=0, compScore=0, ctr=0, rounds=0;
 const buttons = document.querySelectorAll("button");
-const playSc = document.querySelector("#comp");
-const compSc = document.querySelector("#user");
 
-while(playerScore<5 || compScore<5){
-    buttons.forEach((button) => {
-        button.addEventListener("click",() => {
-            ctr = singleRound(getComputerChoice(), button.id);
-        });
+buttons.forEach((button) => {
+    button.addEventListener('click',()=> {
+        playGame(button.id);
     });
+});
+
+function playGame(playerChoice){
+    ctr = singleRound(getComputerChoice(), playerChoice)
+    rounds++;
+    document.querySelector("#rounds").textContent = rounds.toString();
     if(ctr==1){
         playerScore++;
     }
     else if(ctr==-1){
         compScore++;
     }
-    playSc.textContent = playerScore;
-    compSc.textContent = compScore;
-}
-if(playerScore==5){
-    playSc.textContent = "WON the Game!";
-    compSc.textContent = "LOST!";
-}
-else{
-    compSc.textContent = "WON the Game!";
-    playSc.textContent = "LOST!";
+    document.querySelector("#user").textContent = playerScore.toString();
+    document.querySelector("#comp").textContent = compScore.toString();
+
+    if(playerScore==5){
+        document.querySelector("#result").textContent = "You WON the Game!";
+        disableButtons();
+    }
+    else if(compScore==5){
+        document.querySelector("#result").textContent = "You LOST! Better Luck next Time.";
+        disableButtons();
+    }
 }
 
-
+function disableButtons() {
+    buttons.forEach(elem => {
+        elem.disabled = true
+    })
+}
 
 function getComputerChoice(){
     switch(Math.floor(Math.random()*3)+1)
@@ -41,37 +48,47 @@ function getComputerChoice(){
 
 function singleRound(computerSelection, playerSelection){
     if(computerSelection=='R'){
-        if(playerSelection=='R'){
-            return 0;
-        }
-        else if(playerSelection=='P'){
+        if(playerSelection=='P'){
+            document.querySelector("#result").textContent = "Player wins the round."
             return 1;
         }
-        else{
+        else if(playerSelection=='S'){
+            document.querySelector("#result").textContent = "Computer wins the round."
             return -1;
+        }
+        else {
+            document.querySelector("#result").textContent = "Tie."
+            return 0;
         }
     }
     else if(computerSelection=='P'){
-        if(playerSelection=='P'){
-            return 0;
-        }
-        else if(playerSelection=='S'){
+        if(playerSelection=='S'){
+            document.querySelector("#result").textContent = "Player wins the round."
             return 1;
         }
-        else{
+        else if(playerSelection=='R'){
+            document.querySelector("#result").textContent = "Computer wins the round."
             return -1;
+        }
+        else {
+            document.querySelector("#result").textContent = "Tie."
+            return 0;
         }
     }
     else if(computerSelection=='S'){
-        if(playerSelection=='S'){
-            return 0;
-        }
-        else if(playerSelection=='R'){
+        if(playerSelection=='R'){
+            document.querySelector("#result").textContent = "Player wins the round."
             return 1;
         }
-        else{
+        else if(playerSelection=='P'){
+            document.querySelector("#result").textContent = "Computer wins the round."
             return -1;
         }
+        else {
+            document.querySelector("#result").textContent = "Tie."
+            return 0;
+        }
     }
-
+    return 0;
 }
+//});
